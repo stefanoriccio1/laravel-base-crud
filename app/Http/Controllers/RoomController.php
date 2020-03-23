@@ -41,7 +41,11 @@ class RoomController extends Controller
         $room->room_number = $data['room_number'];
         $room->floor = $data['floor'];
         $room->beds = $data['beds'];
-        $room->save();
+
+        $save = $room->save();
+        if($save == true){
+          return redirect()->route('rooms.index');
+        }
     }
 
     /**
