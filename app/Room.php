@@ -11,6 +11,5 @@ class Room extends Model
       'room_number',
       'floor',
       'beds',
-    ];
-
+    ]; 
 }
