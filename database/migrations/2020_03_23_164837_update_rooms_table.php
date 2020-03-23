@@ -15,7 +15,7 @@ class UpdateRoomsTable extends Migration
     {
       Schema::table('rooms', function (Blueprint $table)
       {
-        $table->text('room_number')->change();
+        $table->tinyInteger('room_number')->change();
       });
     }
 
