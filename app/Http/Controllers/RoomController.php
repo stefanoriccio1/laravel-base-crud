@@ -41,8 +41,8 @@ class RoomController extends Controller
 
         $request->validate([
           'room_number' => 'required|numeric',
-          'floor' => 'required|numeric|min:0|max:6',
-          'beds' => 'required|numeric|min:1|max:5',
+          'floor' => 'required|numeric',
+          'beds' => 'required|numeric',
         ]);
 
         $room = new Room;
