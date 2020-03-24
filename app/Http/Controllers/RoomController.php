@@ -38,6 +38,13 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+
+        $request->validate([
+          'room_number' => 'required|numeric|max:3'
+          'floor' => 'required|numeric|max:3'
+          'beds' => 'required|numeric|max:2'
+        ])
+
         $room = new Room;
         $room->room_number = $data['room_number'];
         $room->floor = $data['floor'];
