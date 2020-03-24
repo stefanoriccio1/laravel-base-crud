@@ -80,9 +80,14 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Room $room)
     {
-        //
+      // dd($room);
+      if(empty($room)){
+        abort('404');
+      }
+      
+      return view('rooms.edit', compact('room'));
     }
 
     /**
