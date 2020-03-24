@@ -62,9 +62,14 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Room $room)
     {
-        //
+        // $room = Room::find($id);
+
+        if(empty($room)){
+          abort('404');
+        }
+        return view('rooms.show', compact('room'));
     }
 
     /**
