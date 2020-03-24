@@ -46,13 +46,15 @@ class RoomController extends Controller
         ]);
 
         $room = new Room;
-        $room->room_number = $data['room_number'];
-        $room->floor = $data['floor'];
-        $room->beds = $data['beds'];
-
+        // $room->room_number = $data['room_number'];
+        // $room->floor = $data['floor'];
+        // $room->beds = $data['beds'];
+        $room->fill($data);
         $save = $room->save();
+
         if($save == true){
-          return redirect()->route('rooms.index');
+          $room = Room::orderBy('id','desc')->first();
+          return redirect()->route('rooms.show', compact('room'));
         }
     }
 
