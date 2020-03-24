@@ -5,5 +5,12 @@
 @endsection
 
 @section('main')
+  @foreach ($rooms as $room)
 
+    {{$room->id}}
+    {{$room->room_number}}
+    {{$room->floor}}
+    {{$room->beds}}
+    
+  @endforeach
 @endsection
