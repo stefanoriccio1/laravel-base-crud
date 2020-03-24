@@ -40,10 +40,10 @@ class RoomController extends Controller
         $data = $request->all();
 
         $request->validate([
-          'room_number' => 'required|numeric|max:3'
-          'floor' => 'required|numeric|max:3'
-          'beds' => 'required|numeric|max:2'
-        ])
+          'room_number' => 'required|numeric',
+          'floor' => 'required|numeric|min:0|max:6',
+          'beds' => 'required|numeric|min:1|max:5',
+        ]);
 
         $room = new Room;
         $room->room_number = $data['room_number'];
