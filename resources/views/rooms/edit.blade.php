@@ -17,14 +17,16 @@
         </div>
       @endif
     </header>
-    <form class="" action="{{route('rooms.store')}}" method="post">
+    <form class="" action="{{route('rooms.update', $room->id)}}" method="post">
       @csrf
-        <input name="room_number" type="text" value="" placeholder='Room Number'>
-        <input name="floor" type="text" value="" placeholder = 'Floor'>
-        <input name="beds" type="text" value="" placeholder= 'Beds'>
+        <input name="room_number" type="text" value="{{$room->room_number}}" placeholder='Room Number'>
+        <input name="floor" type="text" value="{{$room->floor}}" placeholder = 'Floor'>
+        <input name="beds" type="text" value="{{$room->beds}}" placeholder= 'Beds'>
 
+
+        <input type="hidden" name="id" value="{{$room->id}}">
         <button type="submit" name="button">Save</button>
-      @method('POST')
+      @method('PATCH')
     </form>
   </body>
 </html>
