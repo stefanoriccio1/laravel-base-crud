@@ -133,7 +133,7 @@ class RoomController extends Controller
           'id' => $id,
           'rooms' => Room::all()
         ];
-        return view('rooms.index', $data)
+        return view('rooms.index', $data);
     }
 
 }
