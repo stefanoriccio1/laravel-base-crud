@@ -6,11 +6,13 @@
 
 @section('main')
   @foreach ($rooms as $room)
-
-    {{$room->id}}
-    {{$room->room_number}}
-    {{$room->floor}}
-    {{$room->beds}}
-    
+    <div class="room">
+      <ul>
+        <li>id: {{$room->id}}</li>
+        <li>Room number: {{$room->room_number}}</li>
+        <li>Floor: {{$room->floor}}</li>
+        <li>Number of beds: {{$room->beds}}</li>
+      </ul>
+    </div>
   @endforeach
 @endsection
