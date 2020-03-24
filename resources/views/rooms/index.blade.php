@@ -12,6 +12,13 @@
         <li>Room number: {{$room->room_number}}</li>
         <li>Floor: {{$room->floor}}</li>
         <li>Number of beds: {{$room->beds}}</li>
+        <li>
+          <form action="{{route('rooms.destroy', $room->id)}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">DELETE</button>
+          </form>
+        </li>
       </ul>
     </div>
   @endforeach

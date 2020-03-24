@@ -125,8 +125,15 @@ class RoomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Room $room)
     {
-        //
+        $id = $room->id;
+        $deleted = $room->delete();
+        $data = [
+          'id' => $id,
+          'rooms' => Room::all()
+        ];
+        return view('rooms.index', $data)
     }
+
 }
