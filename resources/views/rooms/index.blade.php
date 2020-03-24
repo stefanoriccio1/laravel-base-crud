@@ -2,6 +2,11 @@
 
 @section('header')
  <h1>Rooms index</h1>
+ @if(!empty($id))
+   <div>
+     Hai cancellato la stanza con ID: {{$id}}
+   </div>
+ @endif
 @endsection
 
 @section('main')
