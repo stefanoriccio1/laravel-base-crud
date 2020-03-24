@@ -86,7 +86,7 @@ class RoomController extends Controller
       if(empty($room)){
         abort('404');
       }
-      
+
       return view('rooms.edit', compact('room'));
     }
 
@@ -99,7 +99,24 @@ class RoomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $room = Room::find($id);
+        if(empty($room)){
+          abort('404');
+        }
+
+        $data = $request->all();
+        $request->validate([
+
+          'room_number' => 'required|numeric',
+          'floor' => 'required|numeric',
+          'beds' => 'required|numeric',
+        ]);
+
+        $updated = $room->update($data);
+        if($updated == true){
+          $room = Room::find($id);
+          return redirect()->route('rooms.show', compact('room'));
+        }
     }
 
     /**
